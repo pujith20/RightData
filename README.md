@@ -1,8 +1,9 @@
-# Welcome to your Lovable project
+# 💻 GrowthProAI - Business Dashboard
+## Full Stack Intern Assignment
 
-## Project info
+A modern, responsive business dashboard that simulates how local businesses view their SEO content and Google Business data - showcasing GrowthProAI's core use cases.
 
-**URL**: https://lovable.dev/projects/2fad093f-5658-49a9-ae3d-e478f8636b8c
+**Live Demo**: https://lovable.dev/projects/2fad093f-5658-49a9-ae3d-e478f8636b8c
 
 ## How can I edit this code?
 
@@ -50,15 +51,76 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+## 🔧 Assignment Requirements Completed
 
-This project is built with:
+### ✅ Frontend (React + Tailwind CSS)
+- **Input Form**: Business Name & Location with validation
+- **Display Card**: Google rating (stars), review count, AI-generated SEO headline
+- **Regenerate Button**: Updates headline with new AI suggestions
+- **Responsive Design**: Mobile-friendly with modern SaaS styling
+- **Bonus Features**: Loading spinners, form validation, smooth animations
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### ✅ Backend (Node.js + Express)
+- **POST /business-data**: Returns simulated business insights
+- **GET /regenerate-headline**: Generates fresh AI-style headlines
+- **No Database**: Uses realistic mock data
+- **Complete API**: Error handling, validation, CORS enabled
+
+### 🌟 Extra Features Implemented
+- Professional design system with gradients and animations
+- Toast notifications for user feedback  
+- TypeScript for type safety
+- Component-based architecture
+- Comprehensive documentation
+
+## 🚀 Technologies Used
+
+**Frontend:**
+- React 18 + TypeScript
+- Vite (build tool)
+- Tailwind CSS (styling)
+- Shadcn UI (components)
+- Lucide React (icons)
+
+**Backend:**
+- Node.js + Express.js
+- CORS middleware
+- Static mock data simulation
+
+## 📁 Project Structure
+
+```
+frontend/                 # React frontend (this directory)
+├── src/
+│   ├── components/       # React components
+│   ├── pages/           # Page components  
+│   ├── services/        # API service layer
+│   └── hooks/           # Custom React hooks
+│
+backend/                 # Express.js backend
+├── server.js           # Main server file
+├── package.json        # Backend dependencies
+└── README.md          # Backend documentation
+```
+
+## 🔄 Running the Full Stack Application
+
+### Frontend (React)
+```bash
+npm install
+npm run dev
+# Runs on http://localhost:8080
+```
+
+### Backend (Express.js)
+```bash
+cd backend
+npm install  
+npm run dev
+# Runs on http://localhost:3001
+```
+
+**Note**: The frontend is configured to work with mock data by default. To use the actual backend API, update the `BASE_URL` in `src/services/businessApi.ts` and ensure the backend is running.
 
 ## How can I deploy this project?
 
