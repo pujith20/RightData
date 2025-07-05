@@ -43,7 +43,7 @@ const simulateApiDelay = (min: number = 800, max: number = 1500) => {
 };
 
 export class BusinessApiService {
-  private static readonly BASE_URL = 'http://localhost:3001'; // Your Express.js backend URL
+  private static readonly BASE_URL = 'https://rightdata.onrender.com'; // Your Express.js backend URL
   
   /**
    * Fetch business data - POST /business-data
