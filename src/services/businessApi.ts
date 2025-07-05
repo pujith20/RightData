@@ -50,12 +50,7 @@ export class BusinessApiService {
    * In production, this makes actual API calls to your backend
    */
   static async getBusinessData(request: BusinessRequest): Promise<BusinessData> {
-    await simulateApiDelay();
-    
     try {
-      // For demo purposes, we're using mock data
-      // Replace this with actual API call:
-      /*
       const response = await fetch(`${this.BASE_URL}/business-data`, {
         method: 'POST',
         headers: {
@@ -65,14 +60,12 @@ export class BusinessApiService {
       });
       
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        // Fallback to mock data if backend is not available
+        await simulateApiDelay();
+        return generateMockData(request.name, request.location);
       }
       
       return await response.json();
-      */
-      
-      // Mock implementation for demo
-      return generateMockData(request.name, request.location);
     } catch (error) {
       console.error('Error fetching business data:', error);
       throw new Error('Failed to fetch business data. Please try again.');
