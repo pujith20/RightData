@@ -1,135 +1,106 @@
-# 💻 GrowthProAI - Business Dashboard
-## Full Stack Intern Assignment
+# 💼 GrowthProAI – Full Stack Intern Assignment
 
-A modern, responsive business dashboard that simulates how local businesses view their SEO content and Google Business data - showcasing GrowthProAI's core use cases.
+A mini dashboard that simulates how small businesses might view their SEO content and Google Business data — one of GrowthProAI’s core use cases.
 
-**Live Demo**: https://lovable.dev/projects/2fad093f-5658-49a9-ae3d-e478f8636b8c
+## ✨ Features
 
-## How can I edit this code?
+- 🌍 **Responsive UI** with React + Tailwind CSS
+- 📝 Input Form for Business Name & Location
+- 📊 Business Card displaying:
+  - Simulated Google Rating
+  - Total Number of Reviews
+  - AI-generated SEO Headline
+- 🔁 “Regenerate SEO Headline” with backend integration
+- ⚡ Smooth UI animations, loading states, and toasts
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🧑‍💻 Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2fad093f-5658-49a9-ae3d-e478f8636b8c) and start prompting.
+### Frontend
+- React + TypeScript
+- Tailwind CSS
+- Lucide Icons
+- Radix UI (ShadCN UI components)
+- React Hook Form
+- Zod (for form validation)
+- React Router DOM
 
-Changes made via Lovable will be committed automatically to this repo.
+### Backend
+- Node.js
+- Express.js
 
-**Use your preferred IDE**
+> No database — data is simulated in memory.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📦 Project Structure
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## 🔧 Assignment Requirements Completed
-
-### ✅ Frontend (React + Tailwind CSS)
-- **Input Form**: Business Name & Location with validation
-- **Display Card**: Google rating (stars), review count, AI-generated SEO headline
-- **Regenerate Button**: Updates headline with new AI suggestions
-- **Responsive Design**: Mobile-friendly with modern SaaS styling
-- **Bonus Features**: Loading spinners, form validation, smooth animations
-
-### ✅ Backend (Node.js + Express)
-- **POST /business-data**: Returns simulated business insights
-- **GET /regenerate-headline**: Generates fresh AI-style headlines
-- **No Database**: Uses realistic mock data
-- **Complete API**: Error handling, validation, CORS enabled
-
-### 🌟 Extra Features Implemented
-- Professional design system with gradients and animations
-- Toast notifications for user feedback  
-- TypeScript for type safety
-- Component-based architecture
-- Comprehensive documentation
-
-## 🚀 Technologies Used
-
-**Frontend:**
-- React 18 + TypeScript
-- Vite (build tool)
-- Tailwind CSS (styling)
-- Shadcn UI (components)
-- Lucide React (icons)
-
-**Backend:**
-- Node.js + Express.js
-- CORS middleware
-- Static mock data simulation
-
-## 📁 Project Structure
-
-```
-frontend/                 # React frontend (this directory)
 ├── src/
-│   ├── components/       # React components
-│   ├── pages/           # Page components  
-│   ├── services/        # API service layer
-│   └── hooks/           # Custom React hooks
-│
-backend/                 # Express.js backend
-├── server.js           # Main server file
-├── package.json        # Backend dependencies
-└── README.md          # Backend documentation
-```
+│ ├── components/
+│ │ ├── BusinessForm.tsx
+│ │ ├── BusinessCard.tsx
+│ ├── hooks/
+│ │ └── use-toast.ts
+│ ├── services/
+│ │ └── businessApi.ts
+│ ├── pages/
+│ │ └── Dashboard.tsx
+├── server/
+│ └── server.js (Express API)
 
-## 🔄 Running the Full Stack Application
 
-### Frontend (React)
+
+---
+
+## 🚀 Getting Started
+
+### 🔧 Prerequisites
+- Node.js (v18 or later)
+- npm / yarn / pnpm
+
+### 🖥️ Frontend Setup
+
 ```bash
+# 1. Install dependencies
 npm install
+
+# 2. Run the frontend
 npm run dev
-# Runs on http://localhost:8080
-```
 
-### Backend (Express.js)
-```bash
-cd backend
-npm install  
-npm run dev
-# Runs on http://localhost:3001
-```
+Backend runs on:
+http://localhost:3000
 
-**Note**: The frontend is configured to work with mock data by default. To use the actual backend API, update the `BASE_URL` in `src/services/businessApi.ts` and ensure the backend is running.
+📡 API Endpoints
+POST /business-data
 
-## How can I deploy this project?
+{
+  "name": "Cake & Co",
+  "location": "Mumbai"
+}
 
-Simply open [Lovable](https://lovable.dev/projects/2fad093f-5658-49a9-ae3d-e478f8636b8c) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
+Response:
+{
+  "rating": 4.3,
+  "reviews": 127,
+  "headline": "Why Cake & Co is Mumbai's Sweetest Spot in 2025"
+}
 
-Yes, you can!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+GET /regenerate-headline?name=...&location=...
+{
+  "headline": "Discover Why Cake & Co Dominates Mumbai’s Dessert Scene!"
+}
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+✅ Bonus Features
+ Loading indicators with spinner
+
+ Toast notifications
+
+ Responsive design
+
+ Clean modular architecture
+
+ Thank You !!
