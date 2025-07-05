@@ -113,8 +113,8 @@ export default function Dashboard() {
                 regenerating={regenerating}
               />
               
-              {/* New Search Button */}
-              <div className="text-center">
+              {/* Action Buttons */}
+              <div className="flex justify-center gap-4">
                 <button
                   onClick={() => {
                     setBusinessData(null);
@@ -124,6 +124,16 @@ export default function Dashboard() {
                   className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
                 >
                   Search for another business
+                </button>
+                <span className="text-muted-foreground">•</span>
+                <button
+                  onClick={() => {
+                    // Keep current data but allow adding new business
+                    setBusinessData(null);
+                  }}
+                  className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
+                >
+                  Add new business
                 </button>
               </div>
             </div>
