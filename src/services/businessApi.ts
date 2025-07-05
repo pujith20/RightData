@@ -73,6 +73,28 @@ export class BusinessApiService {
   }
   
   /**
+   * Save business data to backend - POST /save-business
+   */
+  static async saveBusinessData(request: { name: string; location: string; data: BusinessData }): Promise<void> {
+    try {
+      const response = await fetch(`${this.BASE_URL}/save-business`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(request),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error saving business data:', error);
+      throw new Error('Failed to save business data. Please try again.');
+    }
+  }
+
+  /**
    * Regenerate SEO headline - GET /regenerate-headline
    */
   static async regenerateHeadline(name: string, location: string): Promise<string> {

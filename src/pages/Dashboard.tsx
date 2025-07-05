@@ -116,6 +116,32 @@ export default function Dashboard() {
               {/* Action Buttons */}
               <div className="flex justify-center gap-4">
                 <button
+                  onClick={async () => {
+                    try {
+                      // Save current business data to backend
+                      await BusinessApiService.saveBusinessData({
+                        name: businessName,
+                        location: location,
+                        data: businessData
+                      });
+                      toast({
+                        title: "Business saved successfully!",
+                        description: `${businessName} has been added to your database`,
+                      });
+                    } catch (error) {
+                      toast({
+                        title: "Error saving business",
+                        description: "Please try again later",
+                        variant: "destructive",
+                      });
+                    }
+                  }}
+                  className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
+                >
+                  Add to Database
+                </button>
+                <span className="text-muted-foreground">•</span>
+                <button
                   onClick={() => {
                     setBusinessData(null);
                     setBusinessName("");
@@ -124,16 +150,6 @@ export default function Dashboard() {
                   className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
                 >
                   Search for another business
-                </button>
-                <span className="text-muted-foreground">•</span>
-                <button
-                  onClick={() => {
-                    // Keep current data but allow adding new business
-                    setBusinessData(null);
-                  }}
-                  className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
-                >
-                  Add new business
                 </button>
               </div>
             </div>
