@@ -116,6 +116,27 @@ export default function Dashboard() {
               {/* Action Buttons */}
               <div className="flex justify-center gap-4">
                 <button
+                  onClick={() => {
+                    setBusinessData(null);
+                    setBusinessName("");
+                    setLocation("");
+                  }}
+                  className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
+                >
+                  Search for another business
+                </button>
+                <span className="text-muted-foreground">•</span>
+                <button
+                  onClick={() => {
+                    // Clear data to show form again
+                    setBusinessData(null);
+                  }}
+                  className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
+                >
+                  Add new business
+                </button>
+                <span className="text-muted-foreground">•</span>
+                <button
                   onClick={async () => {
                     try {
                       // Save current business data to backend
@@ -138,18 +159,7 @@ export default function Dashboard() {
                   }}
                   className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
                 >
-                  Add to Database
-                </button>
-                <span className="text-muted-foreground">•</span>
-                <button
-                  onClick={() => {
-                    setBusinessData(null);
-                    setBusinessName("");
-                    setLocation("");
-                  }}
-                  className="text-primary hover:text-primary-hover underline-offset-4 hover:underline transition-colors"
-                >
-                  Search for another business
+                  Save to Database
                 </button>
               </div>
             </div>
